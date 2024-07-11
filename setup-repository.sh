@@ -7,8 +7,8 @@ if ! type brew > /dev/null 2>&1; then
 else
   echo "brew is already installed."
 fi
+brew -v
 
-# setup pyenv
 if ! type pyenv > /dev/null 2>&1; then
   brew install pyenv
   echo "pyenv installed."
