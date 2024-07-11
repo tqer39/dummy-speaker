@@ -30,3 +30,10 @@ repos:
     rev: v8.8.2
     hooks:
       - id: cspell
+
+  # markdownlint
+  # see: https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.41.0
+    hooks:
+      - id: markdownlint
