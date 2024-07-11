@@ -16,7 +16,7 @@ if ! type pyenv > /dev/null 2>&1; then
 else
   echo "pyenv is already installed."
 fi
-
 pyenv -v
+
 # install python
 pyenv install -s
