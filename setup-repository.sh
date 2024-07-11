@@ -42,3 +42,10 @@ pip -V
 # install poetry
 pip install -r requirements-poetry.txt
 poetry -V
+
+echo "setup completed."
+brew -v
+pyenv -v
+python -V
+pip -V
+poetry -V
