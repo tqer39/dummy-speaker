@@ -29,3 +29,12 @@ else
   echo "python is already installed."
 fi
 python -V
+
+# setup pip
+if ! type pip > /dev/null 2>&1; then
+  python -m pip install --upgrade pip
+  echo "pip installed."
+else
+  echo "pip is already installed."
+fi
+pip -V
