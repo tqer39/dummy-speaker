@@ -9,6 +9,7 @@ else
 fi
 brew -v
 
+# setup pyenv
 if ! type pyenv > /dev/null 2>&1; then
   brew install pyenv
   echo "pyenv installed."
