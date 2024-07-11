@@ -38,3 +38,7 @@ else
   echo "pip is already installed."
 fi
 pip -V
+
+# install poetry
+pip install -r requirements-poetry.txt
+poetry -V
