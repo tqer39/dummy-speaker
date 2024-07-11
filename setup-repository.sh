@@ -20,3 +20,11 @@ pyenv -v
 
 # install python
 pyenv install -s
+eval "$(pyenv init -)"
+
+if ! type python > /dev/null 2>&1; then
+  echo "python not found."
+else
+  echo "python is already installed."
+fi
+python -V
