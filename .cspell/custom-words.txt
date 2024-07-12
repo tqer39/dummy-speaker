@@ -2,3 +2,5 @@ markdownlint
 textlint
 shellcheck
 pyenv
+tqer
+automerge
