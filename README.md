@@ -5,5 +5,5 @@
 1. Install the dependencies
 
 ```bash
-./setup-repository.sh
+./setup-repository
 ```
