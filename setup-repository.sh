@@ -20,7 +20,7 @@ pyenv -v
 
 # install python
 pyenv install -s
-pyenv global $(pyenv versions --bare)
+pyenv global "$(pyenv versions --bare)"
 eval "$(pyenv init -)"
 
 if ! type python > /dev/null 2>&1; then
@@ -43,9 +43,22 @@ pip -V
 pip install -r requirements-poetry.txt
 poetry -V
 
+# install pre-commit
+if ! type pre-commit > /dev/null 2>&1; then
+  brew install pre-commit
+  echo "pre-commit installed."
+else
+  echo "pre-commit is already installed."
+fi
+pre-commit --version
+pre-commit install
+
+echo "========================================"
 echo "setup completed."
+echo "========================================"
 brew -v
 pyenv -v
 python -V
 pip -V
 poetry -V
+pre-commit --version
