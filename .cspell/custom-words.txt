@@ -4,3 +4,4 @@ shellcheck
 pyenv
 tqer
 automerge
+mypy

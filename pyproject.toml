@@ -1,0 +1,14 @@
+# [tool.mypy]
+# python_version = "3.12"
+
+[tool.poetry]
+name = "dummy-speaker"
+version = "0.1.0"
+description = ""
+authors = ["developer <tqer39@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+# [tool.poetry.dev.dependencies]
+# mypy = "1.10.1"
