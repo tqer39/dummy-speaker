@@ -1,26 +1,24 @@
 #!/bin/bash -ue
-# -uオプションは、未定義の変数を使用しようとした場合にエラーを発生させるためのものです。
-# -eオプションは、スクリプトの実行中にエラーが発生した場合にスクリプトを終了するためのものです。
 
 echo "========================================"
 echo "setup start."
 echo "========================================"
 
 # setup brew
-if ! type brew > /dev/null 2>&1; then
+if command -v brew ; then
+  echo "skip brew installation."
+else
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   echo "brew installed."
-else
-  echo "brew is already installed."
 fi
 brew -v
 
 # setup pyenv
-if ! type pyenv > /dev/null 2>&1; then
+if command -v pyenv; then
+  echo "skip pyenv installation."
+else
   brew install pyenv
   echo "pyenv installed."
-else
-  echo "pyenv is already installed."
 fi
 pyenv -v
 
@@ -29,19 +27,19 @@ pyenv install -s
 pyenv global "$(pyenv versions --bare)"
 eval "$(pyenv init -)"
 
-if ! type python > /dev/null 2>&1; then
-  echo "python not found."
-else
+if command -v python; then
   echo "python is already installed."
+else
+  echo "python not found."
 fi
 python -V
 
 # setup pip
-if ! type pip > /dev/null 2>&1; then
+if command -v pip; then
+  echo "skip pip installation."
+else
   python -m pip install --upgrade pip
   echo "pip installed."
-else
-  echo "pip is already installed."
 fi
 pip -V
 
@@ -50,11 +48,11 @@ pip install -r requirements-poetry.txt
 poetry -V
 
 # install pre-commit
-if ! type pre-commit > /dev/null 2>&1; then
+if command -v pre-commit; then
+  echo "skip pre-commit installation."
+else
   brew install pre-commit
   echo "pre-commit installed."
-else
-  echo "pre-commit is already installed."
 fi
 pre-commit --version
 pre-commit install
