@@ -47,6 +47,9 @@ pip -V
 pip install -r requirements-poetry.txt
 poetry -V
 
+pip install -U openai-whisper
+which whisper
+
 # install pre-commit
 if command -v pre-commit; then
   echo "skip pre-commit installation."
