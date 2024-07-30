@@ -47,6 +47,7 @@ pip -V
 pip install -r requirements-poetry.txt
 poetry -V
 
+# install openai-whisper
 pip install -U openai-whisper
 which whisper
 
