@@ -9,8 +9,9 @@ authors = ["developer <tqer39@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.12.4"
-torch = "2.0.0"  # 互換性のあるバージョンを指定
-openai-whisper = {git = "https://github.com/openai/whisper.git"}
+# 互換性のあるバージョンを指定
+torch = "2.0.0"
+openai-whisper = {git = "https://github.com/openai/whisper.git", rev = "v20231117"}  # 最新の安定バージョンを指定
 
 [build-system]
 requires = ["poetry-core"]
