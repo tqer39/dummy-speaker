@@ -9,6 +9,4 @@ authors = ["developer <tqer39@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.12.4"
-
-# [tool.poetry.dev.dependencies]
-# mypy = "1.10.1"
+torch = "2.0.0"  # 互換性のあるバージョンを指定
