@@ -1,0 +1,18 @@
+# [tool.mypy]
+# python_version = "3.12"
+
+[tool.poetry]
+name = "dummy-speaker"
+version = "0.1.0"
+description = ""
+authors = ["developer <tqer39@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.11.6"
+# 互換性のあるバージョンを指定
+torch = "2.0.0"
+openai-whisper = {git = "https://github.com/openai/whisper.git", rev = "v20231117"}  # 最新の安定バージョンを指定
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,7 @@
+markdownlint
+textlint
+shellcheck
+pyenv
+tqer
+automerge
+mypy
