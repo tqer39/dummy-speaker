@@ -13,6 +13,15 @@ else
 fi
 brew -v
 
+# install ffmpeg
+if command -v ffmpeg; then
+  echo "skip ffmpeg installation."
+else
+  brew install ffmpeg
+  echo "ffmpeg installed."
+fi
+ffmpeg -version
+
 # setup pyenv
 if command -v pyenv; then
   echo "skip pyenv installation."
@@ -70,3 +79,4 @@ python -V
 pip -V
 poetry -V
 pre-commit --version
+ffmpeg -version
