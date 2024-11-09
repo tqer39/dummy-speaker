@@ -37,16 +37,6 @@ pip install --upgrade pip
 # huggingface_hub をインストール
 pip install huggingface_hub
 
-# Install dependencies
-if ! command -v brew &> /dev/null; then
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
-
-if ! command -v uv &> /dev/null; then
-    brew install uv
-fi
-uv -V
-
 # モデルのダウンロード先ディレクトリを作成
 mkdir -p ./models/checkpoints
 
