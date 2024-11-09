@@ -17,6 +17,17 @@ sudo apt install -y \
     python3-venv \
     git
 
+# .python-version ファイルから Python のバージョンを取得
+PYTHON_VERSION=3.10.0
+
+# 指定された Python バージョンをインストール（未インストールの場合）
+if ! pyenv versions --bare | grep -q "^${PYTHON_VERSION}$"; then
+    echo "Python ${PYTHON_VERSION} をインストールしています..."
+    pyenv install ${PYTHON_VERSION}
+else
+    echo "Python ${PYTHON_VERSION} は既にインストールされています。"
+fi
+
 # Install dependencies
 if ! command -v brew &> /dev/null; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
