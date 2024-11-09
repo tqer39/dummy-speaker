@@ -67,6 +67,7 @@ if [ ! -d "$HOME/workspace/fish-speech" ]; then
 else
     echo "Fish Speech リポジトリが既に存在します。最新の状態に更新します..."
     git -C "$HOME/workspace/fish-speech" pull origin main
+    git -C "$HOME/workspace/fish-speech" switch main
 fi
 
 # pytorchをインストールします。
