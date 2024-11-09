@@ -23,11 +23,8 @@ sudo apt install -y \
 # huggingface_hub をインストール
 pip install huggingface_hub
 
-# .python-version ファイルから Python のバージョンを取得
-PYTHON_VERSION=3.10.0
-
 # 仮想環境の作成
-uv venv --python $PYTHON_VERSION
+uv venv --python 3.10.0
 # shellcheck source=/dev/null
 source .venv/bin/activate
 python -V
