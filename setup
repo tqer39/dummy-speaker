@@ -49,13 +49,20 @@ else
     echo "Fish Speech repository already exists in $HOME/workspace/fish-speech. Skipping clone."
 fi
 
+# pyenv がインストールされているかを確認
+pyenv install -s
+
+# リポジトリのディレクトリに移動
+python -m venv venv
+source venv/bin/activate
+
+# pytorchをインストールします。
+pip install -r requirements.txt
+
 # リポジトリのディレクトリに移動
 cd "$HOME/workspace/fish-speech"
 git -C "$HOME/workspace/fish-speech" switch main
 git -C "$HOME/workspace/fish-speech" pull origin main
-
-# pytorchをインストールします。
-pip3 install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1
 
 sudo apt update
 
