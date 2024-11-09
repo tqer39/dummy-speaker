@@ -10,6 +10,7 @@ sudo apt update
 sudo apt install -y \
     build-essential \
     cmake \
+    clang \
     libsox-dev \
     ffmpeg \
     libasound-dev \
@@ -23,6 +24,9 @@ sudo apt install -y \
 # huggingface_hub をインストール
 pip install huggingface_hub
 
+git clone https://github.com/fishaudio/fish-speech
+cd ./fish-speech
+
 PYTHON_VERSION=3.10.0
 
 # 仮想環境の作成
@@ -32,9 +36,6 @@ source .venv/bin/activate
 python -V
 uv pip install --upgrade pip
 uv add --dev --python "$PYTHON_VERSION" torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1
-
-# Fish Speech の依存関係をインストール
-# pip install -e "$HOME/workspace/fish-speech"[stable]
 
 # huggingface-cli がインストールされているか確認
 if ! command -v huggingface-cli &> /dev/null; then
@@ -48,19 +49,5 @@ mkdir -p ./models/checkpoints
 # モデルをダウンロード
 huggingface-cli download fishaudio/fish-speech-1.4 \
     --local-dir ./models/checkpoints/fish-speech-1.4
-
-# $HOME/workspace ディレクトリが存在しない場合は作成
-mkdir -p "$HOME/workspace"
-
-# fish-speech リポジトリをクローンまたは更新
-if [ ! -d "$HOME/workspace/fish-speech" ]; then
-    echo "Fish Speech リポジトリをクローンしています..."
-    git clone https://github.com/fishaudio/fish-speech.git "$HOME/workspace/fish-speech"
-fi
-
-echo "Fish Speech リポジトリが既に存在します。最新の状態に更新します..."
-git -C "$HOME/workspace/fish-speech" pull origin main
-git -C "$HOME/workspace/fish-speech" switch main
-
 
 echo "セットアップが完了しました。"
