@@ -28,9 +28,6 @@ else
     echo "Python ${PYTHON_VERSION} は既にインストールされています。"
 fi
 
-# ローカルの Python バージョンを設定
-pyenv local ${PYTHON_VERSION}
-
 # 仮想環境の作成
 python -m venv venv
 
