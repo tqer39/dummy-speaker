@@ -1,0 +1,45 @@
+#!/bin/bash
+
+set -ex
+
+# Install dependencies
+if ! command -v brew &> /dev/null; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+if ! command -v uv &> /dev/null; then
+    brew install uv
+fi
+uv -V
+
+# pip upgrade
+pip install --upgrade pip
+
+# huggingface_hub がインストールされているかを確認
+if ! command -v huggingface-cli &> /dev/null; then
+    echo "huggingface_hub is not installed. Installing..."
+    pip install huggingface_hub
+
+    # huggingface-cli がインストールされているかを確認
+    if ! command -v huggingface-cli &> /dev/null; then
+        echo "huggingface-cli installation failed."
+        exit 1
+    else
+        echo "huggingface-cli is installed."
+    fi
+else
+    echo "huggingface_hub is already installed."
+fi
+huggingface-cli version
+
+# $HOME/workspace ディレクトリが存在しない場合は作成
+mkdir -p "$HOME/workspace"
+
+# $HOME/workspace/fish-speech が既に存在しない場合のみ git clone を実行
+if [ ! -d "$HOME/workspace/fish-speech" ]; then
+    echo "Cloning Fish Speech repository into ~/workspace/fish-speech..."
+    git clone https://github.com/fishaudio/fish-speech.git "$HOME/workspace/fish-speech"
+else
+    echo "Fish Speech repository already exists in $HOME/workspace/fish-speech. Skipping clone."
+fi
+
