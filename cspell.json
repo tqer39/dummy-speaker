@@ -1,0 +1,15 @@
+{
+  "files": [
+    "**",
+    ".*/**"
+  ],
+  "ignorePaths": [
+    ".git",
+    ".gitignore"
+  ],
+  "words": [
+    "kentaro",
+    "SSIA",
+    "tqer"
+  ]
+}

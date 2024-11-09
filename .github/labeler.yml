@@ -1,0 +1,8 @@
+---
+document:
+  - changed-files:
+      - any-glob-to-any-file:
+          - '**/*.md'
+          - '**/*.txt'
+          - '**/*.rst'
+          - 'LICENSE'
