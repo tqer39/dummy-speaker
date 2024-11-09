@@ -3,4 +3,11 @@ name = "GenLipSyncVideo"
 version = "0.0.1"
 description = "Create a speaker from a text"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.10.0"
+
+[dependency-groups]
+dev = [
+    "torch==2.4.1",
+    "torchaudio==2.4.1",
+    "torchvision==0.19.1",
+]
