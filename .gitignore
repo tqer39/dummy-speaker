@@ -248,3 +248,4 @@ data/datasets/*
 
 # model checkpoints
 models/checkpoints/*
+fish-speech/*
