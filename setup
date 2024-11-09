@@ -31,6 +31,12 @@ fi
 # ローカルの Python バージョンを設定
 pyenv local ${PYTHON_VERSION}
 
+# 仮想環境の作成
+python -m venv venv
+
+# 仮想環境をアクティベート
+source venv/bin/activate
+
 # pip を最新に更新
 pip install --upgrade pip
 
@@ -62,13 +68,6 @@ else
     echo "Fish Speech リポジトリが既に存在します。最新の状態に更新します..."
     git -C "$HOME/workspace/fish-speech" pull origin main
 fi
-
-# pyenv がインストールされているかを確認
-pyenv install -s
-
-# リポジトリのディレクトリに移動
-python -m venv venv
-source venv/bin/activate
 
 # pytorchをインストールします。
 pip install -r requirements.txt
