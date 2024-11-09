@@ -44,10 +44,12 @@ if ! command -v huggingface-cli &> /dev/null; then
 fi
 
 # モデルのダウンロード先ディレクトリを作成
-mkdir -p ./models/checkpoints
+mkdir -p ./models/checkpoints/fish-speech-1.4
 
-# モデルのダウンロード
-huggingface-cli download fishaudio/fish-speech-1.4 --local-dir ./models/checkpoints/fish-speech-1.4
+# モデルをダウンロード
+huggingface-cli download fishaudio/fish-speech-1.4 \
+    --local-dir ./models/checkpoints/fish-speech-1.4 \
+    --recursive
 
 # $HOME/workspace ディレクトリが存在しない場合は作成
 mkdir -p "$HOME/workspace"
