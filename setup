@@ -32,6 +32,12 @@ else
 fi
 huggingface-cli version
 
+# モデルのダウンロード先ディレクトリを作成
+mkdir -p ./models/checkpoints
+
+# モデルのダウンロード
+huggingface-cli download fishaudio/fish-speech-1.4 --local-dir ./models/checkpoints/fish-speech-1.4
+
 # $HOME/workspace ディレクトリが存在しない場合は作成
 mkdir -p "$HOME/workspace"
 
@@ -42,4 +48,30 @@ if [ ! -d "$HOME/workspace/fish-speech" ]; then
 else
     echo "Fish Speech repository already exists in $HOME/workspace/fish-speech. Skipping clone."
 fi
+
+# リポジトリのディレクトリに移動
+cd "$HOME/workspace/fish-speech"
+git -C "$HOME/workspace/fish-speech" switch main
+git -C "$HOME/workspace/fish-speech" pull origin main
+
+# pytorchをインストールします。
+pip3 install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1
+
+sudo apt update
+
+# (Ubuntu / Debianユーザー) sox + ffmpegをインストールします。
+sudo apt install libsox-dev ffmpeg
+
+# (Ubuntu / Debianユーザー) pyaudio をインストールします。
+sudo apt install -y build-essential \
+    cmake \
+    libasound-dev \
+    portaudio19-dev \
+    libportaudio2 \
+    libportaudiocpp0
+
+# fish-speechをインストールします。
+pip3 install -e .[stable]
+
+cd -
 
