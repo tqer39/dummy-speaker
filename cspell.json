@@ -8,8 +8,22 @@
     ".gitignore"
   ],
   "words": [
+    "0",
+    "42",
+    "fishaudio",
+    "huggingface",
     "kentaro",
+    "libasound",
+    "libportaudio",
+    "libportaudiocpp",
+    "libsox",
+    "portaudio",
+    "shellcheck",
     "SSIA",
-    "tqer"
+    "torchaudio",
+    "torchvision",
+    "tqer",
+    "v0",
+    "venv"
   ]
 }
