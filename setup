@@ -23,13 +23,15 @@ sudo apt install -y \
 # huggingface_hub をインストール
 pip install huggingface_hub
 
+PYTHON_VERSION=3.10.0
+
 # 仮想環境の作成
-uv venv --python 3.10.0
+uv venv --python "$PYTHON_VERSION"
 # shellcheck source=/dev/null
 source .venv/bin/activate
 python -V
 uv pip install --upgrade pip
-uv add --dev torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1
+uv add --dev --python "$PYTHON_VERSION" torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1
 
 # Fish Speech の依存関係をインストール
 # pip install -e "$HOME/workspace/fish-speech"[stable]
