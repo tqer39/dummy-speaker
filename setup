@@ -1,6 +1,21 @@
 #!/bin/bash
 
-set -ex
+set -ex  # エラー時に終了し、実行コマンドを表示
+
+# 必要なシステムパッケージをインストール
+sudo apt update
+sudo apt install -y \
+    build-essential \
+    cmake \
+    libsox-dev \
+    ffmpeg \
+    libasound-dev \
+    portaudio19-dev \
+    libportaudio2 \
+    libportaudiocpp0 \
+    python3-pip \
+    python3-venv \
+    git
 
 # Install dependencies
 if ! command -v brew &> /dev/null; then
@@ -63,19 +78,6 @@ pip install -r requirements.txt
 cd "$HOME/workspace/fish-speech"
 git -C "$HOME/workspace/fish-speech" switch main
 git -C "$HOME/workspace/fish-speech" pull origin main
-
-sudo apt update
-
-# (Ubuntu / Debianユーザー) sox + ffmpegをインストールします。
-sudo apt install libsox-dev ffmpeg
-
-# (Ubuntu / Debianユーザー) pyaudio をインストールします。
-sudo apt install -y build-essential \
-    cmake \
-    libasound-dev \
-    portaudio19-dev \
-    libportaudio2 \
-    libportaudiocpp0
 
 # fish-speechをインストールします。
 pip3 install -e .[stable]
