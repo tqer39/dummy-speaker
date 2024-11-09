@@ -20,6 +20,9 @@ sudo apt install -y \
     python3-venv \
     git
 
+# pyenv をインストール
+pyenv install 3.13.0
+
 # huggingface_hub をインストール
 pip install huggingface_hub
 

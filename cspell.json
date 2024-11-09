@@ -18,6 +18,7 @@
     "libportaudiocpp",
     "libsox",
     "portaudio",
+    "pyenv",
     "shellcheck",
     "SSIA",
     "torchaudio",
