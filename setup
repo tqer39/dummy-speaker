@@ -59,4 +59,6 @@ mkdir -p "$FS_ROOT/models/checkpoints"
 huggingface-cli download fishaudio/fish-speech-1.4 \
     --local-dir "$HOME/workspace/GenLipSyncVideo/models/checkpoints/fish-speech-1.4"
 
+mkdir -p ./data/raw/separate
+
 echo "セットアップが完了しました。"
