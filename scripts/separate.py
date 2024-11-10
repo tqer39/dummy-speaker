@@ -3,16 +3,24 @@ import argparse
 from pydub import AudioSegment
 from argparse import Namespace
 
+
 def parse_arguments() -> Namespace:
-    parser = argparse.ArgumentParser(description='WAVファイルを指定の間隔で分割します。')
-    parser.add_argument('--input', help='入力する単一のWAVファイルのパス')
-    parser.add_argument('--directory', help='入力する複数のWAVファイルが存在するディレクトリのパス')
-    parser.add_argument('--output', required=True, help='出力するディレクトリのパス')
-    parser.add_argument('--dmm-id', help='DMM ID（例: d_208302）')
-    parser.add_argument('--start', type=int, required=True, help='分割開始時間（秒）')
-    parser.add_argument('--interval', type=int, required=True, help='分割間隔（秒）')
-    parser.add_argument('--duration', type=int, required=True, help='各分割ファイルの長さ（秒）')
+    parser = argparse.ArgumentParser(
+        description="WAVファイルを指定の間隔で分割します。"
+    )
+    parser.add_argument("--input", help="入力する単一のWAVファイルのパス")
+    parser.add_argument(
+        "--directory", help="入力する複数のWAVファイルが存在するディレクトリのパス"
+    )
+    parser.add_argument("--output", required=True, help="出力するディレクトリのパス")
+    parser.add_argument("--dmm-id", help="DMM ID（例: d_208302）")
+    parser.add_argument("--start", type=int, required=True, help="分割開始時間（秒）")
+    parser.add_argument("--interval", type=int, required=True, help="分割間隔（秒）")
+    parser.add_argument(
+        "--duration", type=int, required=True, help="各分割ファイルの長さ（秒）"
+    )
     return parser.parse_args()
+
 
 def main():
     args = parse_arguments()
@@ -58,13 +66,14 @@ def main():
         current_time = start_time
 
         while current_time + duration <= audio_length:
-            segment = audio[current_time:current_time + duration]
+            segment = audio[current_time : current_time + duration]
             output_filename = f"{os.path.splitext(os.path.basename(input_file))[0]}_track_{segment_number:03d}.wav"
             output_filepath = os.path.join(output_path, output_filename)
             segment.export(output_filepath, format="wav")
             print(f"出力ファイル: {output_filepath}")
             segment_number += 1
             current_time += interval
+
 
 if __name__ == "__main__":
     main()
