@@ -245,6 +245,7 @@ data/raw/*
 data/processed/*
 data/transcriptions/*
 data/datasets/*
+data/speech-to-text/*
 
 # model checkpoints
 models/checkpoints/*
