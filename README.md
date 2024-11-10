@@ -19,18 +19,6 @@ source ../venv/bin/activate
 # separate.py の使い方
 ```
 
-#### wav ファイルの分割
-
-```bash
-python "$HOME/workspace/GenLipSyncVideo/scripts/separate.py" \
-  --input "$HOME/workspace/GenLipSyncVideo/data/raw/d_208302/d_208302_track_001.wav" \
-  --output "$HOME/workspace/GenLipSyncVideo/data/raw/separate" \
-  --dmm-id d_208302 \
-  --start 0 \
-  --interval 5 \
-  --duration 15
-```
-
 #### 引数の説明
 
 - `--input`: 入力する単一のWAVファイルのパス（例: `"$HOME/workspace/GenLipSyncVideo/data/raw/d_208302/d_208302_track_001.wav"`）
@@ -40,6 +28,32 @@ python "$HOME/workspace/GenLipSyncVideo/scripts/separate.py" \
 - `--start`: 分割開始時間（秒）（例: `0`）
 - `--interval`: 分割間隔（秒）（例: `5`）
 - `--duration`: 各分割ファイルの長さ（秒）（例: `15`）
+
+#### 個別で DMM の wav ファイルを分割
+
+```bash
+cd "$HOME/workspace/fish-speech"
+python "$HOME/workspace/GenLipSyncVideo/scripts/separate.py" \
+  --input "$HOME/workspace/GenLipSyncVideo/data/raw/d_208302/d_208302_track_001.wav" \
+  --output "$HOME/workspace/GenLipSyncVideo/data/raw/separate" \
+  --dmm-id d_208302 \
+  --start 0 \
+  --interval 5 \
+  --duration 15
+```
+
+#### 一括で DMM の wav ファイルを分割
+
+```bash
+cd "$HOME/workspace/fish-speech"
+python "$HOME/workspace/GenLipSyncVideo/scripts/separate.py" \
+  --directory "$HOME/workspace/GenLipSyncVideo/data/raw/d_208302" \
+  --output "$HOME/workspace/GenLipSyncVideo/data/raw/separate" \
+  --dmm-id d_208302 \
+  --start 0 \
+  --interval 5 \
+  --duration 15
+```
 
 #### 注意事項
 
