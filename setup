@@ -60,5 +60,6 @@ huggingface-cli download fishaudio/fish-speech-1.4 \
     --local-dir "$HOME/workspace/GenLipSyncVideo/models/checkpoints/fish-speech-1.4"
 
 mkdir -p ./data/raw/separate
+mkdir -p ./data/speech-to-text
 
 echo "セットアップが完了しました。"
