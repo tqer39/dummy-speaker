@@ -18,6 +18,7 @@
     "libportaudiocpp",
     "libsox",
     "portaudio",
+    "pydub",
     "pyenv",
     "shellcheck",
     "SSIA",
