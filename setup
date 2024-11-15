@@ -50,7 +50,7 @@ source .venv/bin/activate
 python -V
 uv pip install --upgrade pip
 uv add --dev --python "$PYTHON_VERSION" torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1
-uv add --dev --python "$PYTHON_VERSION" click pydub
+uv add --dev --python "$PYTHON_VERSION" click pydub fish-audio-preprocess
 
 # モデルのダウンロード先ディレクトリを作成
 mkdir -p "$FS_ROOT/models/checkpoints"
